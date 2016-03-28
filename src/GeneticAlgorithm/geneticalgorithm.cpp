@@ -65,7 +65,7 @@ void GeneticAlgorithm::nextGeneration()
     decltype(mPopulation) nextPopulation(newPopulationCount);
 
     int offset = 0;
-    for(const auto& pair : mGenerationGenerator) //6.7, 10, 7.3, 7.4
+    for(const auto& pair : mGenerationGenerator)
     {
         offset += pair.second;
         const auto& generator = pair.first;

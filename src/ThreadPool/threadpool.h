@@ -16,6 +16,8 @@
 
 using namespace std::literals;
 
+//The thread pool let you simply add a lot of task to the queue and will execute them using the optimal number of thread
+
 class ThreadPool {
 public:
     ThreadPool(size_t);
@@ -40,8 +42,6 @@ public:
                 break;
 
                  std::this_thread::sleep_for(1ms);
-//            assert(workingCount || tasks.size());
-////            std::cout << workingCount << " : " << tasks.size() << std::endl;
         };
     }
 

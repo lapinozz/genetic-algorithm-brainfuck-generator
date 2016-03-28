@@ -182,7 +182,6 @@ void Interpretor::createDefaultInstructions()
                 else if(getCurrentInstruction() == '[')
                     deep--;
 
-//                mCurrentInstructionPtr -= (bool)deep; //only increment if we did nto found yet
                 mCurrentInstructionPtr--;
             }
 
@@ -191,6 +190,8 @@ void Interpretor::createDefaultInstructions()
     });
 
     setInstruction('.', [this](){mOutput.push_back(getCurrentMemory());});
+
+//    those instruction are not needed for the proram i'm trying to generate for now
 //    setInstruction('^', [this](){mOutput += std::to_string(getCurrentMemory());});
 //    setInstruction(',', [this](){mOutput.push_back(getCurrentMemory());});
 }

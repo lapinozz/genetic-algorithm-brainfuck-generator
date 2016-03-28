@@ -4,6 +4,8 @@
 #include <memory>
 #include <random>
 
+//I wanted a thread local wrapper for the c++11 Random number generation
+
 class RandomGenerator
 {
 public:

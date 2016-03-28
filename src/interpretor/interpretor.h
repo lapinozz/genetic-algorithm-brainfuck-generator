@@ -11,7 +11,6 @@
 class Interpretor
 {
     public:
-//        using MemoryType = uint32_t;
         using MemoryType = int8_t;
         using Instruction = char;
 

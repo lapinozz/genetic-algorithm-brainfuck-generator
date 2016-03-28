@@ -115,36 +115,36 @@ int main()
 //    ((uint32_t&)generator2.selector)++;
 //    generators.emplace_back(generator2, 1);
 //    generator2.crossWith = GeneticAlgorithm::ROULETTE_SELECTION;
-    generator2.crossWith = GeneticAlgorithm::RANDOM;
-    generators.emplace_back(generator2, 50);
+//    generator2.crossWith = GeneticAlgorithm::RANDOM;
+//    generators.emplace_back(generator2, 50);
 
 //    generators.emplace_back(generator3, 100); //crossover is super duper slow
 
 //    generator.selector = GeneticAlgorithm::BEST;
-    generator.selector = GeneticAlgorithm::ROULETTE_SELECTION;
-    generator.effect = GeneticAlgorithm::DEEP_MUTATION;
-    generator.probability = 0.5f;
-    generators.emplace_back(generator, 50);
+//    generator.selector = GeneticAlgorithm::ROULETTE_SELECTION;
+//    generator.effect = GeneticAlgorithm::DEEP_MUTATION;
+//    generator.probability = 0.5f;
+//    generators.emplace_back(generator, 10);
 
-    auto generatorCount = targetString.size()*50;
-//    auto generatorCount = 200;
+//    auto generatorCount = targetString.size()*50;
+    auto generatorCount = 30;
 
     generator.selector = GeneticAlgorithm::BEST;
     generator.effect = GeneticAlgorithm::DEEP_MUTATION;
-    generator.probability = 0.01f;
-    generators.emplace_back(generator, generatorCount);
-    generator.probability = 0.03f;
-    generators.emplace_back(generator, generatorCount);
-    generator.probability = 0.04f;
-    generators.emplace_back(generator, generatorCount);
+//    generator.probability = 0.01f;
+//    generators.emplace_back(generator, generatorCount);
+//    generator.probability = 0.03f;
+//    generators.emplace_back(generator, generatorCount);
+//    generator.probability = 0.04f;
+//    generators.emplace_back(generator, generatorCount);
     generator.probability = 0.05f;
     generators.emplace_back(generator, generatorCount);
-    generator.probability = 0.06f;
-    generators.emplace_back(generator, generatorCount);
-    generator.probability = 0.07f;
-    generators.emplace_back(generator, generatorCount);
-    generator.probability = 0.1f;
-    generators.emplace_back(generator, generatorCount);
+//    generator.probability = 0.06f;
+//    generators.emplace_back(generator, generatorCount);
+//    generator.probability = 0.07f;
+//    generators.emplace_back(generator, generatorCount);
+//    generator.probability = 0.1f;
+//    generators.emplace_back(generator, generatorCount);
 
     ga.setGenarationGenerator(generators);
     ga.start();

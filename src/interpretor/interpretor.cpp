@@ -161,11 +161,8 @@ void Interpretor::createDefaultInstructions()
                 else if(getCurrentInstruction() == ']')
                     deep--;
 
-//                mCurrentInstructionPtr += (bool)deep; //only increment if we did nto found yet
                 mCurrentInstructionPtr++;
             }
-
-//            mCurrentInstructionPtr--; //oups, we got too far
         }
     });
 
@@ -175,7 +172,7 @@ void Interpretor::createDefaultInstructions()
         {
             ----mCurrentInstructionPtr; //we are currently pointing to the instructing AFTER ']' so we decrement once to get to the instruction and a second time to get to the precedent
             int deep = 1;
-            while(deep > 0 && mCurrentInstructionPtr != -1)
+            while(deep > 0 && (int)mCurrentInstructionPtr != -1)
             {
                 if(getCurrentInstruction() == ']')
                     deep++;

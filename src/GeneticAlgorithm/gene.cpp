@@ -38,14 +38,14 @@ void Gene::crossover(const Gene& other, size_t minimumCrossoverLenght, size_t ma
 {
     size_t shortest = size() < other.size() ? size() : other.size();
 
-    if(maximumCrossoverLenght == -1)
+    if(maximumCrossoverLenght == -1u)
         maximumCrossoverLenght = shortest/3;
 //        maximumCrossoverLenght = 3;
 
-    for(int x = 0; x < shortest; x += RandomGenerator::get().getInt(minimumCrossoverLenght, maximumCrossoverLenght))
+    for(size_t x = 0; x < shortest; x += RandomGenerator::get().getInt(minimumCrossoverLenght, maximumCrossoverLenght))
     {
         size_t amount = RandomGenerator::get().getInt(minimumCrossoverLenght, maximumCrossoverLenght);
-        for(int y = x; y < x + amount && y < shortest; y++)
+        for(size_t y = x; y < x + amount && y < shortest; y++)
             mGenes[y] = other.mGenes[y];
         x += amount;
     }
@@ -67,9 +67,9 @@ void Gene::mutate(MutationTypes type, float mutationRate, size_t pos)
     if(mutationRate != 1 && mutationRate <= RandomGenerator::get().getFloat(0.f, 1.f))
         return;
 
-    if(pos == -1 && size() == 0)
+    if(pos == -1u && size() == 0u)
         pos = 0;
-    else if(pos == -1)
+    else if(pos == -1u)
         pos = RandomGenerator::get().getInt((size_t)0, size() - 1);
 
     if(type == MUT_INSERT)
@@ -119,7 +119,7 @@ void Gene::mutate(MutationRates rates, float mutationRate, size_t pos)
 
 void Gene::deepMutate(MutationRates rates, float mutationRate)
 {
-    for(int x = 0; x < mGenes.size(); x++)
+    for(size_t x = 0; x < mGenes.size(); x++)
         mutate(rates, mutationRate, x);
 }
 

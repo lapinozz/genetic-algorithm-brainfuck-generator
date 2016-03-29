@@ -17,7 +17,7 @@ GeneticAlgorithm::GeneticAlgorithm(size_t populationSize, size_t initGenomSize) 
 void GeneticAlgorithm::reset()
 {
     mPopulation.clear();
-    for(int x = 0; x < mPopulationSize; x++)
+    for(size_t x = 0; x < mPopulationSize; x++)
         mPopulation.emplace_back(Gene{mInitGenomSize, true}, 0);
 
     mCurrentGeneration = 0;
@@ -121,7 +121,7 @@ const Gene& GeneticAlgorithm::selectGene(GeneSelectors selector)
     {
         auto selected = RandomGenerator::get().getInt((uint64_t)0, mFitnessTotal);
         uint64_t current = 0;
-        int x = 0;
+        size_t x = 0;
         for(;x < mPopulation.size(); x++)
         {
             if(current > selected)
@@ -135,8 +135,7 @@ const Gene& GeneticAlgorithm::selectGene(GeneSelectors selector)
     else if(flag == BEST)
         return getBest(selector & ~BEST);
 
-    return Gene();
-
+    assert(("bad selector", false));
 }
 
 size_t GeneticAlgorithm::getCurrentGeneration() const
